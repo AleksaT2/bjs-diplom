@@ -1,24 +1,24 @@
 const userForm = new UserForm();
 
 userForm.loginFormCallback = data => {
-    ApiConnector.login(data, callback => {
-        if (callback.success) {
+    ApiConnector.login(data, response => {
+        if (response.success) {
             location.reload();
         }
         else {
-            userForm.setLoginErrorMessage(callback.error)
+            userForm.setLoginErrorMessage(response.error)
         }
     });
 }
 
 
 userForm.registerFormCallback = data => {
-    ApiConnector.register(data, callback => {
-        if (callback.success) {
+    ApiConnector.register(data, response => {
+        if (response.success) {
             location.reload();
         }
         else {
-            userForm.setRegisterErrorMessage(callback.error)
+            userForm.setRegisterErrorMessage(response.error)
         }
     });
 }
